@@ -1,0 +1,181 @@
+option cc_generic_services = true;
+option java_generic_services = true;
+option py_generic_services = true;
+
+// 配比计划接口
+message MsgScheduleValue{
+	optional int32 deviceId = 1;   		//设备编号
+	optional int32 termId = 2;			//终端编号
+	optional int32 itemId = 3;			//数据项编码
+	repeated int32 scheduleTime = 4;    //调控时间
+	repeated double scheduleValue = 5;  //调控值
+}
+
+message MsgSchedule {
+	repeated MsgScheduleValue scheduleValues = 1;  //调控值
+	optional int32 date = 2;			// 调度日期 格式：20141028(改为unix时间)
+	optional int32 startTime = 3;		// 开始时间 单位：小时 从0开始（凌晨0点）
+	optional int32 controlTime = 4;		// 计划时间，单位：小时，默认填24（下发一整天的计划）
+}
+
+// 采集任务、设备控制接口
+message MsgDevice {				//--设备档案信息
+	optional int32 deviceId = 1;			//采集设备ID
+	optional string address = 2;			//设备地址
+	optional int32 port = 3;           		//设备端口
+	optional string identity = 4;			//设备唯一标识
+	enum DeviceLinkType{
+		linkType_TCPIP = 0;
+		linkType_RS485 = 1;
+		linkType_USB = 2;
+		linkType_DBLINK = 3;
+	}
+	optional DeviceLinkType linkType = 5;
+	enum DeviceProtocol {
+		Protocol_newEnergyEffi = 0;
+		Protocol_376 = 1;
+		Protocol_ModBus = 2;
+		Protocol_104 = 3;
+	}
+	optional DeviceProtocol protocol = 6;	//设备通讯协议
+	optional int32 heartBeat = 7;           //心跳周期
+	enum DeviceStatus {
+		DeviceUnavailable = 0;
+		DeviceAvailable = 1;
+	}
+	optional DeviceStatus status = 8;		// 设备状态 
+}
+
+message MsgItemCode {		//--指标档案信息
+	optional int32 itemId = 1;				//指标Id
+	optional string unitId = 2;				//所属用能Id
+	optional int32 deviceId = 3;			//所属采集设备
+	enum ItemCodeType {
+		ItemCodeAnalogVal = 0;		//模拟量
+		ItemCodeDigitalVal = 1;		//数字量
+		ItemCodeDisplayVal = 2;		//示值
+	}
+	optional ItemCodeType itemType = 4;			// 数据类型
+	enum ItemSrcType{
+		DeviceCollect = 0;			//设备采集
+		CalculateResult = 1;		//公式计算
+	}
+	optional ItemSrcType	srcType = 5;		//来源类型
+	optional double upLimit = 6;			// 上限值
+	optional double downLimit = 7;			// 下限值
+	enum ItemWarnType{
+		ItemCodeWarnNo = 0;
+		ItemCodeWarnLog = 1;
+		ItemCodeWarnSql = 2;
+	}
+	optional ItemWarnType  warnType = 8;		// 报警类型
+	optional double baseval = 9;			// 基值
+	optional double coefficient = 10;			// 系数
+	optional string dayStoreTime = 11;		// 日归集时间 char*
+	optional string dayStoreSql = 12;		// 日归集SQL  char*
+	enum ItemCodeStatus {
+		ItemCodeUnavailable = 0;
+		ItemCodeAvailable = 1;
+	}
+	optional ItemCodeStatus status = 13;	// 指标状态
+	optional int32 termId = 14;				// 所属表号
+	optional string warnStoreSql = 15;      // 报警SQL  char*
+	optional int32 secCollPeriod = 16;		// 二次采样周期
+	optional string secCollSQL = 17;       //二次采样SQL
+	optional string secCollOtherSQL = 18;   //二次采样另一个SQL
+	enum ItemStoreType{
+		ItemNoStore = 0;					//不归集
+		ItemDayStore = 1;					//日归集
+		ItemSecCollStore = 2;				//二次采样归集
+	}
+	optional ItemStoreType storeType = 19;   //归集类型
+}
+
+message MsgCollTask {			//--采集任务档案
+	optional int32 taskId = 1;      //任务编号
+	optional string unitId = 2;       //用能单元
+	repeated MsgItemCode itemIds = 3; //指标集合   
+	optional int32 startDate = 4;    //开始时间
+	optional int32 freq = 5;         //采集频率
+	enum TaskStatus {
+		TaskUnavailable = 0;
+		TaskAvailable = 1;
+	}
+	optional TaskStatus status = 6;        //任务状态
+}
+
+message MsgCallData {				//--数据召测任务
+	optional string unitId = 1;			//用能单元Id
+	optional int32 deviceId = 2;		//设备Id
+	optional int32 termId = 3;			//终端Id
+	optional int32 itemId = 4;			//数据项编码
+}
+
+message MsgBatchCallData{     //--批量召测数据
+	repeated string unitIds = 1;    //用能单元Id集合
+	repeated int32 itemIds = 2;     //数据项编码集合
+}
+                                                                        
+message MsgControl{				//--控制信息任务
+	optional int32 deviceId = 1;		//设备Id
+	optional int32 termId = 2;			//终端Id
+	optional int32 itemId = 3;			//数据项编码
+	optional double value = 4;			//控制值
+}
+
+message MsgFormular {			//--计算公式档案
+	optional int32 formularId =1;	 //公式Id
+	optional int32 itemId = 2;       // 指标Id
+	optional string unitId = 3;       // 用能单元
+	optional string expr = 4;        // 计算公式   char*
+	repeated string params = 5;      // 参数x32
+	optional int32 mask = 6;	  	 // 参数掩码
+	enum FormularPriority {
+		Level1 = 1;
+		Level2 = 2;
+		Level3 = 3;
+		Level4 = 4;
+		Level5 = 5;
+	}
+	optional FormularPriority priority = 7;	 // 计算优先级 1 > 2 > 3 > 4 > 5
+	optional int32 freq = 8;		 // 计算频率 频率：分钟
+	enum FormularStatus {
+		FormularUnavailable = 0;
+		FormularAvailable = 1;
+	}
+	optional FormularStatus status = 9;        //计算公式状态
+}
+
+message MsgResult {					//--消息结果反馈
+	enum ResultCode {
+		Success = 1;			// 执行成功
+		BadParamErr = 2;		// 传入错误参数
+		DeviceOfflineErr = 3;	// 设备不在线
+		InternalErr = 4;		// 服务器内部错误
+	}
+	optional ResultCode result = 1;
+	optional double resultDoubleVal = 2;
+}
+message MsgBatchResults{        //批量消息反馈
+	enum ResultBatchCode{
+		Success = 1;			//执行成功
+		BadParamErr = 2;		//传入错误参数
+		DeviceOfflineErr = 3;	//设备不在线
+		InternalErr = 4;		//服务器内部错误
+	}
+	optional ResultBatchCode result = 1;
+	repeated string unitIds = 2;    //用能单元Id集合
+	repeated int32 itemIds = 3;     //数据项编码集合
+	repeated double values = 4;     //召测值集合
+}
+
+service UarcService {
+	rpc UarcSendSchedule(MsgSchedule)	returns(MsgResult);
+	rpc UarcSetDevice(MsgDevice) 		returns(MsgResult);
+	rpc UarcSetCollTask(MsgCollTask)	returns(MsgResult);
+	rpc UarcSetItemCode(MsgItemCode)	returns(MsgResult);
+	rpc UarcSetFormular(MsgFormular)	returns(MsgResult);
+	rpc UarcCallData(MsgCallData)		returns(MsgResult);
+	rpc UarcBatchCallData(MsgBatchCallData) returns(MsgBatchResults);
+	rpc UarcDeviceControl(MsgControl)	returns(MsgResult);
+}

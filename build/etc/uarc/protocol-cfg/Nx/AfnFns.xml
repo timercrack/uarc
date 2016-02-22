@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FRAMENX>
+	<AFN id="0">
+		<FN id="1" hasDataUnit="true">
+			<elem id="1" ename="ConfirmOrDeny" cname="确认或否认" format="CSBIN" len="1"/>
+		</FN>
+		<FN id="2" hasDataUnit="true">
+			<elem id="1" ename="FeedBackAC" cname="确认或否认的报文的AC" format="CSBIN" len="1"/>
+			<elem id="2" repeat="true" countid="NULL" eachLength="5" fixedLength="1">
+				<elem id="3" ename="FeedBackUnitIdentification" cname="确认或否认的报文的数据单元标识" format="CSPnFnS" len="4"/>
+				<elem id="4" ename="ConfirmOrDeny" cname="确认或否认" format="CSBIN" len="1"/>
+			</elem>
+		</FN>
+	</AFN>
+	<AFN id="6">
+		<FN id="1" hasDataUnit="true">
+			<elem id="1" ename="authRequest" cname="认证请求信息" format="CSBIN" len="16"/>
+		</FN>
+		<FN id="2" hasDataUnit="true">
+			<elem id="1" ename="authResponse" cname="认证响应信息" format="CSBIN" len="16"/>
+		</FN>
+		<FN id="3" hasDataUnit="true">
+			<elem id="1" ename="randomNum" cname="随机数信息" format="CSBIN" len="16"/>
+		</FN>
+		<FN id="4" hasDataUnit="true">
+			<elem id="1" ename="randomNumResponse" cname="随机数响应信息" format="CSBIN" len="16"/>
+		</FN>
+	</AFN>
+
+	<AFN id="10">
+		<FN id="1" hasDataUnit="true">
+			<elem id="1" ename="delayTime" cname="信息集中与交互终端作为启动站允许传输延时时间" format="CSBIN" len="1"/>
+			<elem id="2" ename="timeOut" cname="信息集中与交互终端作为启动站等待应答的超时时间" format="CSBINBIT" startBit="0" endBit="11" isfinished="false" len="2"/>
+			<elem id="3" ename="RepeatTimes" cname="信息集中与交互终端作为启动站等待应答的重发次数" format="CSBINBIT" startBit="12" endBit="13" isfinished="true" len="2"/>
+			<elem id="4" ename="transferServiceFlag" cname="信息集中与交互终端作为启动站需确认应答的传输服务标志" format="CSBS8" len="1"/>
+			<elem id="5" ename="heartBeatCycle" cname="心跳周期" format="CSBIN" len="1"/>
+		</FN>
+		<FN id="2" hasDataUnit="true">
+			<elem id="1" ename="StationCount" cname="本次查询的主（子）站个数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="StationNo" cname="主（子）站编号" format="CSBIN" len="1"/>
+				<elem id="4" ename="Effectiveness" cname="主（子）站号有效性标志" format="CSBS8" len="1"/>
+				<elem id="5" ename="Exclusiveness" cname="主（子）站号参数设置排他性标识" format="CSPnFnS" len="4"/>
+				<elem id="6" ename="MasterIP" cname="主（子）站号的主要IP" format="CSIP" len="-1"/>
+				<elem id="7" ename="MasterPort" cname="主（子）站号的端口地址" format="CSBIN" len="2"/>
+				<elem id="8" ename="BackupIP" cnamStationCounte="主（子）站号的备用IP" format="CSIP" len="-1"/>
+				<elem id="9" ename="BackupPort" cname="主（子）站号的端口地址" format="CSBIN" len="2"/>
+				<elem id="10" ename="StationAPN" cname="主（子）站号的APN" format="CSASCII" len="16"/>
+				<elem id="11" ename="StationUsername" cname="主（子）站号的用户名" format="CSASCII" len="32"/>
+				<elem id="12" ename="StationPassword" cname="主（子）站号的密码" format="CSASCII" len="32"/>
+			</elem>
+		</FN>
+		<FN id="3" hasDataUnit="true">
+			<elem id="1" ename="verifyID" cname="认证方案号" format="CSBIN" len="1"/>
+			<elem id="2" ename="verifyParam" cname="认证方案参数" format="CSBIN" len="2"/>
+		</FN>
+		<FN id="4" hasDataUnit="true">
+			<elem id="1" ename="groupAddr1" cname="信息集中与交互终端组地址1" format="CSBIN" len="4"/>
+			<elem id="2" ename="groupAddr2" cname="信息集中与交互终端组地址2" format="CSBIN" len="4"/>
+			<elem id="3" ename="groupAddr3" cname="信息集中与交互终端组地址3" format="CSBIN" len="4"/>
+			<elem id="4" ename="groupAddr4" cname="信息集中与交互终端组地址4" format="CSBIN" len="4"/>
+			<elem id="5" ename="groupAddr5" cname="信息集中与交互终端组地址5" format="CSBIN" len="4"/>
+			<elem id="6" ename="groupAddr6" cname="信息集中与交互终端组地址6" format="CSBIN" len="4"/>
+			<elem id="7" ename="groupAddr7" cname="信息集中与交互终端组地址7" format="CSBIN" len="4"/>
+			<elem id="8" ename="groupAddr8" cname="信息集中与交互终端组地址8" format="CSBIN" len="4"/>
+		</FN>
+		<FN id="5" hasDataUnit="true">
+			<elem id="1" ename="listenPort" cname="信息集中与交互终端侦听端口" format="CSBIN" len="2"/>
+			<elem id="2" ename="ipAddress" cname="信息集中与交互终端IP地址" format="CSIP" len="-1"/>
+			<elem id="3" ename="netmask" cname="子网掩码地址" format="CSIP" len="-1"/>
+			<elem id="4" ename="gateway" cname="网关地址" format="CSIP" len="-1"/>
+			<elem id="5" ename="proxyType" cname="代理类型" format="CSBIN" len="1"/>
+			<elem id="6" ename="proxyServerIP" cname="代理服务器IP地址" format="CSIP" len="-1"/>
+			<elem id="7" ename="proxyServerPort" cname="代理服务器端口" format="CSBIN" len="2"/>
+			<elem id="8" ename="proxyConnection" cname="代理服务器连接方式" format="CSBIN" len="1"/>
+			<elem id="9" ename="proxyUserNameLen" cname="代理服务器用户名长度" isreference="true" format="CSBIN" len="1"/>
+			<elem id="10" ename="proxyUserName" cname="代理服务器用户名" format="CSASCII" len="reference"/>
+			<elem id="11" ename="proxyPasswdLen" cname="代理服务器密码长度" isreference="true" format="CSBIN" len="1"/>
+			<elem id="12" ename="proxyPasswd" cname="代理服务器密码" format="CSASCII" len="reference"/>
+		</FN>
+		<FN id="6" hasDataUnit="true">
+			<elem id="1" ename="accessMethod" cname="信息集中与交互终端级联接入方式" format="CSBIN" len="1"/>
+			<elem id="2" ename="controlFlag" cname="信息集中与交互终端级联通信控制字" format="CSBIN" len="1"/>
+			<elem id="3" ename="msgTimeout" cname="接收等待报文超时时间" format="CSBIN" len="1"/>
+			<elem id="4" ename="charTimeout" cname="接收等待字节超时时间" format="CSBIN" len="1"/>
+			<elem id="5" ename="repeatTimes" cname="级联方（主动站）接收失败重发次数" format="CSBIN" len="1"/>
+			<elem id="6" ename="testCycle" cname="级联巡测周期" format="CSBIN" len="1"/>
+			<elem id="7" ename="cascadeSign" cname="级联/被级联标志" format="CSBINBIT" startBit="7" endBit="7" isfinished="false" len="1"/>
+			<elem id="8" ename="CentCascaded" cname="被级联/级联的信息集中与交互终端个数" isrepeatcount="true" format="CSBINBIT" startBit="0" endBit="3" isfinished="true" len="1"/>
+			<elem id="9" repeat="true" countid="8">
+				<elem id="10" ename="areaCode" cname="被级联/级联方的信息集中与交互终端行政区划码" format="CSBCD3" len="3"/>
+				<elem id="11" ename="terminalAddr" cname="级联/级联方的信息集中与交互终端地址" format="CSBIN" len="4"/>
+				<elem id="12" ename="commAddr" cname="被级联/级联方的信息集中与交互终端通信地址" format="CSIP" len="-1"/>
+				<elem id="13" ename="terminalPort" cname="被级联/级联方的信息集中与交互终端端口地址" format="CSBIN" len="2"/>
+			</elem>
+		</FN>
+		<FN id="7" hasDataUnit="true">
+			<elem id="1" ename="queryCount" cname="本次查询数量" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="connectionPort" cname="信息集中与交互终端的下行通信端口号" format="CSBIN" len="1"/>
+				<elem id="4" ename="masterIP" cname="主用IP地址" format="CSIP" len="-1"/>
+				<elem id="5" ename="masterPort" cname="端口地址" format="CSBIN" len="2"/>
+				<elem id="6" ename="backupIP" cname="备用IP地址" format="CSIP" len="-1"/>
+				<elem id="7" ename="backupPort" cname="端口地址" format="CSBIN" len="2"/>
+				<elem id="8" ename="APN" cname="APN" format="CSASCII" len="16"/>
+				<elem id="9" ename="username" cname="用户名" format="CSASCII" len="32"/>
+				<elem id="10" ename="passwd" cname="密码" format="CSASCII" len="32"/>
+			</elem>
+		</FN>
+		<FN id="9" hasDataUnit="true">
+			<elem id="1" ename="effectivenessFlag" cname="事件记录有效性标志位" format="CSBS64" len="8"/>
+			<elem id="2" ename="levelFlag" cname="事件重要性等级标志位" format="CSBS64" len="8"/>
+			<elem id="3" ename="importantEvent" cname="重要事件记录条数" format="CSBIN" len="2"/>
+			<elem id="4" ename="commonEvent" cname="一般事件记录条数" format="CSBIN" len="2"/>
+		</FN>
+		<FN id="10" hasDataUnit="true">
+			<elem id="1" ename="accessFlag" cname="状态量接入标志位" format="CSBS8" len="1"/>
+			<elem id="2" ename="attrFlag" cname="状态量属性标志位" format="CSBS8" len="1"/>
+		</FN>
+		<FN id="11" hasDataUnit="true">
+			<elem id="1" ename="A1" cname="行政区划码" format="CSBCD3" len="3"/>
+			<elem id="2" ename="A2" cname="信息集中与交互终端地址" format="CSBIN" len="4"/>
+			<elem id="3" ename="A3" cname="主(子)站地址和组地址标志" format="CSBIN" len="1"/>
+		</FN>
+		<FN id="12" hasDataUnit="true">
+			<elem id="1" ename="factoryid" cname="厂商代号" format="CSASCII" len="4"/>
+			<elem id="2" ename="equipmentid" cname="设别编号" format="CSBCD6" len="6"/>
+			<elem id="3" ename="infoid" cname="配置容量信息码" format="CSASCII" len="11"/>
+			<elem id="4" ename="softversion" cname="软件版本号" format="CSASCII" len="4"/>
+			<elem id="5" ename="hardversion" cname="硬件版本号" format="CSASCII" len="4"/>
+			<elem id="6" ename="releasedate" cname="软件发布日期" format="CSBCDType2" len="5"/>
+			<elem id="7" ename="modulecount" cname="模块数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="8" repeat="true" countid="7">
+				<elem id="9" ename="moduleid" cname="模块编号" format="CSBIN" len="1"/>
+				<elem id="10" ename="moduleversion" cname="模块版本号" format="CSASCII" len="4"/>
+				<elem id="11" ename="releasedata" cname="模块版本发布日期" format="CSBCDType2" len="5"/>
+			</elem>
+		</FN>
+		<FN id="13" hasDataUnit="true">
+			<elem id="1" ename="supportCount" cname="支持的测量点信息点组数" format="CSBIN" len="1"/>
+			<elem id="2" ename="startDA2" cname="本帧上报的起始信息点组DA2" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="3" ename="count" cname="本帧上报的个数" isrepeatcount="true" isreference="true" format="CSBIN" len="1"/>
+			<elem id="4" repeat="true" countid="3">
+				<elem id="5" ename="DA1" cname="第i个信息点组DA2所对应的DA1" format="CSBIN" len="reference"/>
+			</elem>
+		</FN>
+		<FN id="14" hasDataUnit="true">
+			<elem id="1" ename="supportCount" cname="支持的测量点信息点组数" format="CSBIN" len="1"/>
+			<elem id="2" ename="startDA2" cname="本帧上报的起始信息点组DA2" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="3" ename="count" cname="本帧上报的个数" isrepeatcount="true" isreference="true" format="CSBIN" len="1"/>
+			<elem id="4" repeat="true" countid="3">
+				<elem id="5" ename="DA1" cname="第i个信息点组DA2所对应的DA1" format="CSBIN" len="reference"/>
+			</elem>
+		</FN>
+		<FN id="15" hasDataUnit="true">
+			<elem id="1" ename="eventFlag" cname="设备支持的事件记录标志位" format="CSBS64" len="8"/>
+		</FN>
+		<FN id="17" hasDataUnit="true">
+			<elem id="1" ename="connectionPort" cname="信息集中与交互终端的下行通信端口号" format="CSBIN" len="1"/>
+			<elem id="2" ename="listenPort" cname="监测终端侦听信端口号" format="CSBIN" len="2"/>
+			<elem id="3" ename="portAttr" cname="监测终端上行通信端口属性" format="CSBIN" len="1"/>
+			<elem id="4" ename="connectionA1" cname="监测终端上行通信地址A1" format="CSBCD3" len="3"/>
+			<elem id="5" ename="connectionA2" cname="监测终端上行通信地址A2" format="CSBIN" len="4"/>
+			<elem id="6" ename="connectionA3" cname="监测终端上行通信地址A3" format="CSBIN" len="1"/>
+			<elem id="7" ename="connectionProtocolType" cname="监测终端上行通信协议类型" format="CSBIN" len="1"/>
+			<elem id="8" ename="IP" cname="监测终端上行IP地址" format="CSIP" len="-1"/>
+			<elem id="9" ename="netmask" cname="子网掩码地址" format="CSIP" len="-1"/>
+			<elem id="10" ename="gateway" cname="网关地址" format="CSIP" len="-1"/>
+			<elem id="11" ename="proxyType" cname="代理类型" format="CSBIN" len="1"/>
+			<elem id="12" ename="proxyIP" cname="代理服务器地址IP地址" format="CSIP" len="-1"/>
+			<elem id="13" ename="proxyPort" cname="代理服务器端口" format="CSBIN" len="2"/>
+			<elem id="14" ename="proxyConnection" cname="代理服务器连接方式" format="CSBIN" len="1"/>
+			<elem id="15" ename="proxyUsernameLen" cname="代理服务器用户名长度" isreference="true" format="CSBIN" len="1"/>
+			<elem id="16" ename="proxyUsername" cname="代理服务器用户名" format="CSASCII" len="reference"/>
+			<elem id="17" ename="proxyPasswdLen" cname="代理服务器密码长度" isreference="true" format="CSBIN" len="1"/>
+			<elem id="18" ename="proxyPasswd" cname="代理服务器密码" format="CSASCII" len="reference"/>
+			<elem id="19" ename="transferDelayTime" cname="监测终端作为启动站允许传输延时时间" format="CSBIN" len="1"/>
+			<elem id="20" ename="timeOutAndRepeatTimes" cname="信息集中与交互终端作为启动站等待应答的超时时间和重发次数" format="CSBIN" len="2"/>
+			<elem id="21" ename="transferServiceFlag" cname="信息集中与交互终端作为启动站需确认应答的传输服务标志" format="CSBS8" len="1"/>
+			<elem id="22" ename="heartBeatCycle" cname="心跳周期" format="CSBIN" len="1"/>
+		</FN>
+		<FN id="25" hasDataUnit="true">
+		</FN>
+		<FN id="26" hasDataUnit="true">
+			<elem id="1" ename="powerValueIntCount" cname="有功电能示值整数位个数" format="CSBINBIT" startBit="2" endBit="3" isfinished="false" len="1"/>
+			<elem id="2" ename="powerValueDecCount" cname="有功电能示值小数位个数" format="CSBINBIT" startBit="0" endBit="1" isfinished="true" len="1"/>
+			<elem id="3" ename="volMulRate" cname="电压互感器倍率" format="CSBIN" len="2"/>
+			<elem id="4" ename="curMulRate" cname="电流互感器倍率" format="CSBIN" len="2"/>
+			<elem id="5" ename="ratedVol" cname="额定电压" format="CSBCDType8" len="2"/>
+			<elem id="6" ename="ratedCur" cname="额定电流" format="CSBCDType9" len="3"/>
+			<elem id="7" ename="wiringType" cname="电源接线方式" format="CSBS8" len="1"/>
+		</FN>
+		<FN id="27" hasDataUnit="true">
+			<elem id="1" ename="volBreakLimit" cname="电压断相门限" format="CSBCDType8" len="2"/>
+			<elem id="2" ename="continueLoseTimeLimit" cname="连续失压时间限值" format="CSBIN" len="1"/>
+			<elem id="3" ename="volOverLimit" cname="电压上上限（过压门限）" format="CSBCDType8" len="2"/>
+			<elem id="4" ename="volOverLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="5" ename="volOverLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+			<elem id="6" ename="volUnderLimit" cname="电压下下限（欠压门限）" format="CSBCDType8" len="2"/>
+			<elem id="7" ename="volUnderLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="8" ename="volUnderLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+			<elem id="9" ename="phaseCurOverLimit" cname="相电流上上限（过流门限）" format="CSBCDType9" len="3"/>
+			<elem id="10" ename="phaseCurOverLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="11" ename="phaseCurOverLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+			<elem id="12" ename="phaseCurRatedLimit" cname="相电流上限（额定电流门限）" format="CSBCDType9" len="3"/>
+			<elem id="13" ename="phaseCurRatedLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="14" ename="phaseCurRatedLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+			<elem id="15" ename="zeroCurRatedLimit" cname="零序电流上限" format="CSBCDType9" len="3"/>
+			<elem id="16" ename="zeroCurRatedLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="17" ename="zeroCurRatedLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+			<elem id="18" ename="threePhaseVolUnbLimit" cname="三相电压不平衡限值" format="CSBCDType6" len="3"/>
+			<elem id="19" ename="threePhaseVolUnbLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="20" ename="threePhaseVolUnbLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+			<elem id="21" ename="threePhaseCurUnbLimit" cname="三相电流不平衡限值" format="CSBCDType6" len="3"/>
+			<elem id="22" ename="threePhaseCurUnbLimitLast" cname="越限持续时间" format="CSBIN" len="1"/>
+			<elem id="23" ename="threePhaseCurUnbLimitFactor" cname="越限恢复系数" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="28" hasDataUnit="true">
+			<elem id="1" ename="powerFactorParam1" cname="总功率因数分段参数1" format="CSBCDType10" len="2"/>
+			<elem id="2" ename="powerFactorParam2" cname="总功率因数分段参数2" format="CSBCDType10" len="2"/>
+			<elem id="3" ename="powerFactorAlarm" cname="总功率因数越限告警定值" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="29" hasDataUnit="true">
+			<elem id="1" ename="aPhaseTotalVoltage" cname="A相电压总畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="2" ename="aPhaseOddVoltage" cname="A相电压奇次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="3" ename="aPhaseEvenVoltage" cname="A相电压偶次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="4" ename="bPhaseTotalVoltage" cname="B相电压总畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="5" ename="bPhaseOddVoltage" cname="B相电压奇次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="6" ename="bPhaseEvenVoltage" cname="B相电压偶次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="7" ename="cPhaseTotalVoltage" cname="C相电压总畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="8" ename="cPhaseOddVoltage" cname="C相电压奇次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="9" ename="cPhaseEvenVoltage" cname="C相电压偶次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="10" ename="aPhaseTotalCurrent" cname="A相电流总畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="11" ename="aPhaseOddCurrent" cname="A相电流奇次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="12" ename="aPhaseEvenCurrent" cname="A相电流偶次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="13" ename="bPhaseTotalCurrent" cname="B相电流总畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="14" ename="bPhaseOddCurrent" cname="B相电流奇次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="15" ename="bPhaseEvenCurrent" cname="B相电流偶次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="16" ename="cPhaseTotalCurrent" cname="C相电流总畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="17" ename="cPhaseOddCurrent" cname="C相电流奇次畸变率越限定值" format="CSBCDType10" len="2"/>
+			<elem id="18" ename="cPhaseEvenCurrent" cname="C相电流偶次畸变率越限定值" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="30" hasDataUnit="true">
+			<elem id="1" ename="shortChangeLmt" cname="短时闪变越限值" format="CSBCDType10" len="2"/>
+			<elem id="2" ename="longChangeLmt" cname="长时时闪变越限值" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="33" hasDataUnit="true">
+		</FN>
+		<FN id="34" hasDataUnit="true">
+			<elem id="1" ename="dataType" cname="非电气量类型" format="CSBIN" len="1"/>
+			<elem id="2" ename="rangeUp" cname="量程（上）" format="CSBCDType11" len="4"/>
+			<elem id="3" ename="rangeDown" cname="量程（下）" format="CSBCDType11" len="4"/>
+		</FN>
+		<FN id="35" hasDataUnit="true">
+			<elem id="1" ename="dataType" cname="非电气量类型" format="CSBIN" len="1"/>
+			<elem id="2" ename="limitUp" cname="越上限定值" format="CSBCDType11" len="4"/>
+			<elem id="3" ename="limitDown" cname="越下限定值" format="CSBCDType11" len="4"/>
+		</FN>
+		<FN id="49" hasDataUnit="true">
+			<elem id="1" ename="freezeBeginDate" cname="冻结基准时间" format="CSBCDType1" len="6"/>
+			<elen id="2" ename="freezePeriod" cname="冻结周期" format="CSBIN" len="2"/>
+			<elem id="3" ename="freezeUnit" cname="冻结周期单位" format="CSBIN" len="1"/>
+			<elem id="4" ename="freezePeriodnum" cname="冻结周期数" format="CSBIN" len="1"/>
+			<elem id="5" ename="dataUnitSignCount" cname="数据单元标识数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="6" repeat="true" countid="5">
+				<elem id="7" ename="dataUnitSign" cname="数据单元标识" format="CSPnFnS" len="4"/>
+			</elem>
+			<elem id="8" ename="upBeginDate" cname="上报基准时间" format="CSBCDType1" len="6"/>
+			<elem id="9" ename="upPeriod" cname="定时上报周期" format="CSBIN" len="1"/>
+			<elem id="10" ename="upPeriodUnit" cname="定时上报周期单位" format="CSBIN" len="1"/>
+		</FN>
+
+		<FN id="57" hasDataUnit="true">
+			<elem id="1" ename="supportCount" cname="支持的测量点信息点组数" format="CSBIN" len="1"/>
+			<elem id="2" ename="startDA2" cname="本帧上报的起始信息点组DA2" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="3" ename="count" cname="本帧上报的个数" isrepeatcount="true" isreference="true" format="CSBIN" len="1"/>
+			<elem id="4" repeat="true" countid="3">
+				<elem id="5" ename="DA1" cname="第i个信息点组DA2所对应的DA1" format="CSBIN" len="reference"/>
+			</elem>
+		</FN>
+	</AFN>
+
+	<AFN id="12">
+		<FN id="1" hasDataUnit="false">
+		</FN>
+		<FN id="9" hasDataUnit="true">
+			<elem1 id="1" ename="startTime" cname="起始时间" format="CSBCDType1" len="5"/>
+			<elem2 id="2" ename="freezeCycle" cname="冻结周期" format="CSBIN" len="2"/>
+			<elem3 id="3" ename="cycleUnit" cname="冻结周期单位" format="CSBIN" len="1"/>
+			<elem4 id="4" ename="cycleCount" cname="冻结周期数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem5 id="5" ename="unitIdentificationCount" cname="数据单元标识数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem6 id="6" repeat="true" countid="5">
+				<elem7 id="7" ename="unitIdentification" cname="数据单元标识" isDataUnitId="true" format="CSPnFnS" len="4"/>
+				<elem8 id="8" repeat="true" countid="4">
+					<elem9 id="9" ename="DataUnit" cname="数据单元标识的数据单元" format="DataUnit" len="-1"/>
+				</elem8>
+			</elem6>
+		</FN>
+	</AFN>
+
+	<AFN id="13">
+		<FN id="1" hasDataUnit="true">
+			<elem id="1" ename="C610" cname="日历时钟" format="CSBCDType1" len="6"/>
+		</FN>
+		<FN id="2" hasDataUnit="true">
+			<elem id="1" ename="param_status_sign" cname="参数状态标志" format="CSBS248" len="31"/>
+		</FN>
+		<FN id="3"  hasDataUnit="true">
+			<elem id="1" ename="C651" cname="重要事件计数器当前值" format="CSBIN" len="2"/>
+		</FN>
+		<FN id="4"  hasDataUnit="true">
+			<elem id="1" ename="C652" cname="重要事件计数器当前值" format="CSBIN" len="2"/>
+		</FN>
+		<FN id="5"  hasDataUnit="true">
+			<elem id="1" ename="C660" cname="事件状态标志" format="CSBS64" len="8"/>
+		</FN>
+		<FN id="6"  hasDataUnit="true">
+			<elem id="1" ename="6038" cname="上电次数" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="9"  hasDataUnit="true">
+			<elem id="1" ename="670" cname="状态量" format="CSBS8" len="1"/>
+			<elem id="2" ename="680" cname="变位标志" format="CSBS8" len="1"/>
+		</FN>
+		<FN id="10"  hasDataUnit="true">
+			<elem id="1" ename="5640" cname="控制输出回路开关接入状态量" format="CSBCD3" len="3"/>
+			<elem id="2" ename="5639" cname="控制输出回路开关变位标志" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="25"  hasDataUnit="true">
+			<elem id="1" ename="B002" cname="总有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="26"  hasDataUnit="true">
+			<elem id="1" ename="B028" cname="总无功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="27"  hasDataUnit="true">
+			<elem id="1" ename="B145" cname="总功率因数" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="28"  hasDataUnit="true">
+			<elem id="1" ename="B651" cname="A相率因数" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="29"  hasDataUnit="true">
+			<elem id="1" ename="B652" cname="B相率因数" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="30"  hasDataUnit="true">
+			<elem id="1" ename="B653" cname="C相率因数" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="33"  hasDataUnit="true">
+			<elem id="1" ename="B011" cname="需量" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="34"  hasDataUnit="true">
+			<elem id="1" ename="B012" cname="日最大需量间" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="35"  hasDataUnit="true">
+			<elem id="1" ename="B013" cname="日最大需量发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="41"  hasDataUnit="true">
+			<elem id="1" ename="B631" cname="A相有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="42"  hasDataUnit="true">
+			<elem id="1" ename="B632" cname="B相有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="43"  hasDataUnit="true">
+			<elem id="1" ename="B633" cname="C相有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="44"  hasDataUnit="true">
+			<elem id="1" ename="B641" cname="A相无功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="45"  hasDataUnit="true">
+			<elem id="1" ename="B642" cname="B相无功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="46"  hasDataUnit="true">
+			<elem id="1" ename="B643" cname="C相无功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="49"  hasDataUnit="true">
+			<elem id="1" ename="B283" cname="（正向）有功总电能示数" format="CSBCDType4" len="5"/>
+		</FN>
+		<FN id="50"  hasDataUnit="true">
+			<elem id="1" ename="9020" cname="（反向）有功总电能示数" format="CSBCDType4" len="5"/>
+		</FN>
+		<FN id="51"  hasDataUnit="true">
+			<elem id="1" ename="B284" cname="（正向）无功总电能示数" format="CSBCDType5" len="4"/>
+		</FN>
+		<FN id="52"  hasDataUnit="true">
+			<elem id="1" ename="9120" cname="（反向）无功总电能示数" format="CSBCDType5" len="4"/>
+		</FN>
+		<FN id="57" hasDataUnit="true">
+			<elem id="1" ename="B017" cname="A相电压" format="CSBCDType8" len="2"/>
+		</FN>
+		<FN id="58" hasDataUnit="true">
+			<elem id="1" ename="B018" cname="B相电压" format="CSBCDType8" len="2"/>
+		</FN>
+		<FN id="59" hasDataUnit="true">
+			<elem id="1" ename="B019" cname="C相电压" format="CSBCDType8" len="2"/>
+		</FN>
+		<FN id="60" hasDataUnit="true">
+			<elem id="1" ename="B710" cname="A相电压相位角" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="61" hasDataUnit="true">
+			<elem id="1" ename="B711" cname="B相电压相位角" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="62" hasDataUnit="true">
+			<elem id="1" ename="B712" cname="C相电压相位角" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="63" hasDataUnit="true">
+			<elem id="1" ename="B170" cname="电压相不平衡度" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="64" hasDataUnit="true">
+			<elem id="1" ename="B020" cname="周波" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="65" hasDataUnit="true">
+			<elem id="1" ename="B021" cname="A相电流" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="66" hasDataUnit="true">
+			<elem id="1" ename="B022" cname="B相电流" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="67" hasDataUnit="true">
+			<elem id="1" ename="B023" cname="C相电流" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="68" hasDataUnit="true">
+			<elem id="1" ename="B036" cname="总视在功率" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="69" hasDataUnit="true">
+			<elem id="1" ename="B720" cname="A相电流相位角" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="70" hasDataUnit="true">
+			<elem id="1" ename="B721" cname="B相电流相位角" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="71" hasDataUnit="true">
+			<elem id="1" ename="B722" cname="C相电流相位角" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="72" hasDataUnit="true">
+			<elem id="1" ename="B180" cname="电流不平衡度" format="CSBCDType7" len="2"/>
+		</FN>
+		<FN id="73" hasDataUnit="true">
+			<elem id="1" ename="6031" cname="日A相电压极大值" format="CSBCDType8" len="2"/>
+		</FN>
+		<FN id="74" hasDataUnit="true">
+			<elem id="1" ename="6041" cname="日A相电压极大值发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="75" hasDataUnit="true">
+			<elem id="1" ename="6032" cname="日B相电压极大值" format="CSBCDType8" len="2"/>
+		</FN>
+		<FN id="76" hasDataUnit="true">
+			<elem id="1" ename="6042" cname="日B相电压极大值发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="77" hasDataUnit="true">
+			<elem id="1" ename="6033" cname="日C相电压极大值" format="CSBCDType8" len="2"/>
+		</FN>
+		<FN id="78" hasDataUnit="true">
+			<elem id="1" ename="6043" cname="日C相电压极大值发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="81" hasDataUnit="true">
+			<elem id="1" ename="6034" cname="日A相电流极大值" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="82" hasDataUnit="true">
+			<elem id="1" ename="6044" cname="日A相电流极大值发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="83" hasDataUnit="true">
+			<elem id="1" ename="6035" cname="日B相电流极大值" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="84" hasDataUnit="true">
+			<elem id="1" ename="6045" cname="日B相电流极大值发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="85" hasDataUnit="true">
+			<elem id="1" ename="6036" cname="日C相电流极大值" format="CSBCDType9" len="3"/>
+		</FN>
+		<FN id="86" hasDataUnit="true">
+			<elem id="1" ename="6046" cname="日C相电流极大值发生时间" format="CSBCDType2" len="5"/>
+		</FN>
+		<FN id="89" hasDataUnit="true">
+			<elem id="1" ename="7010" cname="总基波有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="90" hasDataUnit="true">
+			<elem id="1" ename="7020" cname="总基波无功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="91" hasDataUnit="true">
+			<elem id="1" ename="7030" cname="总谐波有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="92" hasDataUnit="true">
+			<elem id="1" ename="7040" cname="总谐波有功功率" format="CSBCDType6" len="3"/>
+		</FN>
+		<FN id="97" hasDataUnit="true">
+			<elem id="1" ename="6050" cname="A相电压越上上限日累计时间" format="CSBCD2" len="2"/>
+		</FN>
+		<FN id="98" hasDataUnit="true">
+			<elem id="1" ename="6051" cname="B相电压越上上限日累计时间" format="CSBCD2" len="2"/>
+		</FN>
+		<FN id="99" hasDataUnit="true">
+			<elem id="1" ename="6052" cname="C相电压越上上限日累计时间" format="CSBCD2" len="2"/>
+		</FN>
+		<FN id="100" hasDataUnit="true">
+			<elem id="1" ename="6053" cname="A相电压越下下限日累计时间" format="CSBCD2" len="2"/>
+		</FN>
+		<FN id="101" hasDataUnit="true">
+			<elem id="1" ename="6054" cname="B相电压越下下限日累计时间" format="CSBCD2" len="2"/>
+		</FN>
+		<FN id="102" hasDataUnit="true">
+			<elem id="1" ename="6055" cname="C相电压越下下限日累计时间" format="CSBCD2" len="2"/>
+		</FN>
+		<FN id="105" hasDataUnit="true">
+			<elem id="1" ename="6056" cname="A相电压越上上限月累计时间" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="106" hasDataUnit="true">
+			<elem id="1" ename="6057" cname="B相电压越上上限月累计时间" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="107" hasDataUnit="true">
+			<elem id="1" ename="6058" cname="C相电压越上上限月累计时间" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="108" hasDataUnit="true">
+			<elem id="1" ename="6059" cname="A相电压越下下限月累计时间" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="109" hasDataUnit="true">
+			<elem id="1" ename="6060" cname="B相电压越下下限月累计时间" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="110" hasDataUnit="true">
+			<elem id="1" ename="6061" cname="C相电压越下下限月累计时间" format="CSBCD3" len="3"/>
+		</FN>
+		<FN id="113" hasDataUnit="true">
+			<elem id="1" ename="B268" cname="A相电压总畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="114" hasDataUnit="true">
+			<elem id="1" ename="B269" cname="B相电压总畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="115" hasDataUnit="true">
+			<elem id="1" ename="B270" cname="C相电压总畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="116" hasDataUnit="true">
+			<elem id="1" ename="B288" cname="A相电流总畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="117" hasDataUnit="true">
+			<elem id="1" ename="B289" cname="B相电流总畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="118" hasDataUnit="true">
+			<elem id="1" ename="B290" cname="C相电流总畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="121" hasDataUnit="true">
+			<elem id="1" ename="B696" cname="A相电压奇次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="122" hasDataUnit="true">
+			<elem id="1" ename="B697" cname="A相电压偶次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="123" hasDataUnit="true">
+			<elem id="1" ename="B698" cname="B相电压奇次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="124" hasDataUnit="true">
+			<elem id="1" ename="B699" cname="B相电压偶次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="125" hasDataUnit="true">
+			<elem id="1" ename="B69A" cname="C相电压奇次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="126" hasDataUnit="true">
+			<elem id="1" ename="B69B" cname="C相电压偶次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="128" hasDataUnit="true">
+			<elem id="1" ename="B684" cname="A相电流奇次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="129" hasDataUnit="true">
+			<elem id="1" ename="B685" cname="A相电流偶次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="130" hasDataUnit="true">
+			<elem id="1" ename="B686" cname="B相电流奇次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="131" hasDataUnit="true">
+			<elem id="1" ename="B687" cname="B相电流偶次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="132" hasDataUnit="true">
+			<elem id="1" ename="B688" cname="C相电流奇次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="133" hasDataUnit="true">
+			<elem id="1" ename="B689" cname="C相电流偶次畸变率" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="137" hasDataUnit="true">
+			<elem id="1" ename="B110" cname="A相短时闪变" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="138" hasDataUnit="true">
+			<elem id="1" ename="B111" cname="B相短时闪变" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="139" hasDataUnit="true">
+			<elem id="1" ename="B112" cname="C相短时闪变" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="140" hasDataUnit="true">
+			<elem id="1" ename="B113" cname="A相长时闪变" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="141" hasDataUnit="true">
+			<elem id="1" ename="B114" cname="B相长时闪变" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="142" hasDataUnit="true">
+			<elem id="1" ename="B115" cname="C相长时闪变" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="145" hasDataUnit="true">
+			<elem id="1" ename="ABVOLCount_A" cname="A相谐波电压谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="BAA03" cname="A相3次谐波电压" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="BAA05" cname="A相5次谐波电压" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="BAA07" cname="A相7次谐波电压" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="BAA09" cname="A相9次谐波电压" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="BAA11" cname="A相11次谐波电压" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="BAA13" cname="A相13次谐波电压" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="BAA15" cname="A相15次谐波电压" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="BAA17" cname="A相17次谐波电压" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="BAA19" cname="A相19次谐波电压" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="BAA21" cname="A相21次谐波电压" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="BAA23" cname="A相23次谐波电压" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="BAA25" cname="A相25次谐波电压" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="BAA27" cname="A相27次谐波电压" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="BAA29" cname="A相29次谐波电压" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="BAA31" cname="A相31次谐波电压" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="FA70" cname="A相x1次谐波电压" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="FA71" cname="A相x2次谐波电压" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="FA72" cname="A相1x3次谐波电压" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="FA73" cname="A相x4次谐波电压" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="710x" cname="x次谐波电压" type="repeat" format="CSBCDType8" len="2"/>
+			</elem>
+		</FN>
+		<FN id="146" hasDataUnit="true">
+			<elem id="1" ename="ABVOLCount_B" cname="B相谐波电压谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="BAB03" cname="B相3次谐波电压" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="BAB05" cname="B相5次谐波电压" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="BAB07" cname="B相7次谐波电压" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="BAB09" cname="B相9次谐波电压" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="BAB11" cname="B相11次谐波电压" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="BAB13" cname="B相13次谐波电压" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="BAB15" cname="B相15次谐波电压" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="BAB17" cname="B相17次谐波电压" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="BAB19" cname="B相19次谐波电压" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="BAB21" cname="B相21次谐波电压" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="BAB23" cname="B相23次谐波电压" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="BAB25" cname="B相25次谐波电压" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="BAB27" cname="B相27次谐波电压" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="BAB29" cname="B相29次谐波电压" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="BAB31" cname="B相31次谐波电压" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="FB70" cname="B相x1次谐波电压" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="FB71" cname="B相x2次谐波电压" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="FB72" cname="B相x3次谐波电压" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="FB73" cname="B相x4次谐波电压" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="720x" cname="x次谐波电压" type="repeat" format="CSBCDType8" len="2"/>
+			</elem>
+		</FN>
+		<FN id="147" hasDataUnit="true">
+			<elem id="1" ename="ABVOLCount_C" cname="C相谐波电压谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="BAC03" cname="C相3次谐波电压" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="BAC05" cname="C相5次谐波电压" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="BAC07" cname="C相7次谐波电压" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="BAC09" cname="C相9次谐波电压" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="BAC11" cname="C相11次谐波电压" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="BAC13" cname="C相13次谐波电压" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="BAC15" cname="C相15次谐波电压" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="BAC17" cname="C相17次谐波电压" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="BAC19" cname="C相19次谐波电压" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="BAC21" cname="C相21次谐波电压" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="BAC23" cname="C相23次谐波电压" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="BAC25" cname="C相25次谐波电压" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="BAC27" cname="C相27次谐波电压" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="BAC29" cname="C相29次谐波电压" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="BAC31" cname="C相31次谐波电压" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="FC70" cname="C相x1次谐波电压" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="FC71" cname="C相x2次谐波电压" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="FC72" cname="C相x3次谐波电压" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="FC73" cname="C相x4次谐波电压" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="730x" cname="x次谐波电压" type="repeat" format="CSBCDType8" len="2"/>
+			</elem>
+		</FN>
+		<FN id="148" hasDataUnit="true">
+			<elem id="1" ename="ABCURCount_A" cname="A相谐波电流谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="BBA03" cname="A相3次谐波电流" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="BBA05" cname="A相5次谐波电流" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="BBA07" cname="A相7次谐波电流" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="BBA09" cname="A相9次谐波电流" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="BBA11" cname="A相11次谐波电流" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="BBA13" cname="A相13次谐波电流" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="BBA15" cname="A相15次谐波电流" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="BBA17" cname="A相17次谐波电流" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="BBA19" cname="A相19次谐波电流" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="BBA21" cname="A相21次谐波电流" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="BBA23" cname="A相23次谐波电流" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="BBA25" cname="A相25次谐波电流" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="BBA27" cname="A相27次谐波电流" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="BBA29" cname="A相29次谐波电流" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="BBA31" cname="A相31次谐波电流" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="EA70" cname="A相x1次谐波电流" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="EA71" cname="A相x2次谐波电流" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="EA72" cname="A相x3次谐波电流" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="EA73" cname="A相x4次谐波电流" code="19" format="CSXB" len="0"/>
+			
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="740x" cname="x次谐波电流" type="repeat" format="CSBCDType9" len="3"/>
+			</elem>
+		</FN>
+		<FN id="149" hasDataUnit="true">
+			<elem id="1" ename="ABCURCount_B" cname="B相谐波电流谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="BBB03" cname="B相3次谐波电流" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="BBB05" cname="B相5次谐波电流" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="BBB07" cname="B相7次谐波电流" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="BBB09" cname="B相9次谐波电流" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="BBB11" cname="B相11次谐波电流" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="BBB13" cname="B相13次谐波电流" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="BBB15" cname="B相15次谐波电流" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="BBB17" cname="B相17次谐波电流" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="BBB19" cname="B相19次谐波电流" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="BBB21" cname="B相21次谐波电流" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="BBB23" cname="B相23次谐波电流" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="BBB25" cname="B相25次谐波电流" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="BBB27" cname="B相27次谐波电流" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="BBB29" cname="B相29次谐波电流" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="BBB31" cname="B相31次谐波电流" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="EB70" cname="B相x1次谐波电流" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="EB71" cname="B相x2次谐波电流" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="EB72" cname="B相x3次谐波电流" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="EB73" cname="B相x4次谐波电流" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="750x" cname="x次谐波电流" type="repeat" format="CSBCDType9" len="3"/>
+			</elem>
+		</FN>
+		<FN id="150" hasDataUnit="true">
+			<elem id="1" ename="ABCURCount_C" cname="C相谐波电流谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="BBC03" cname="C相3次谐波电流" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="BBC05" cname="C相5次谐波电流" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="BBC07" cname="C相7次谐波电流" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="BBC09" cname="C相9次谐波电流" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="BBC11" cname="C相11次谐波电流" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="BBC13" cname="C相13次谐波电流" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="BBC15" cname="C相15次谐波电流" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="BBC17" cname="C相17次谐波电流" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="BBC19" cname="C相19次谐波电流" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="BBC21" cname="C相21次谐波电流" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="BBC23" cname="C相23次谐波电流" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="BBC25" cname="C相25次谐波电流" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="BBC27" cname="C相27次谐波电流" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="BBC29" cname="C相29次谐波电流" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="BBC31" cname="C相31次谐波电流" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="EC70" cname="C相x1次谐波电流" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="EC71" cname="C相x2次谐波电流" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="EC72" cname="C相x3次谐波电流" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="EC73" cname="C相x4次谐波电流" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+			 	<elem id="3" ename="760x" cname="x次谐波电流" type="repeat" format="CSBCDType9" len="3"/>
+			</elem>
+		</FN>
+		<FN id="153" hasDataUnit="true">
+			<elem id="1" ename="ABVOLCCount_A" cname="A相谐波电压谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="DA61" cname="A相1次谐波电压含有率" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="DA62" cname="A相2次谐波电压含有率" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="DA63" cname="A相3次谐波电压含有率" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="DA64" cname="A相4次谐波电压含有率" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="DA65" cname="A相5次谐波电压含有率" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="DA66" cname="A相6次谐波电压含有率" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="DA67" cname="A相7次谐波电压含有率" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="DA68" cname="A相8次谐波电压含有率" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="DA69" cname="A相9次谐波电压含有率" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="DA6A" cname="A相10次谐波电压含有率" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="DA6B" cname="A相11次谐波电压含有率" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="DA6C" cname="A相12次谐波电压含有率" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="DA6D" cname="A相13次谐波电压含有率" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="DA6E" cname="A相14次谐波电压含有率" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="DA6F" cname="A相15次谐波电压含有率" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="DA70" cname="A相16次谐波电压含有率" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="DA71" cname="A相17次谐波电压含有率" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="DA72" cname="A相18次谐波电压含有率" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="DA73" cname="A相19次谐波电压含有率" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="770x" cname="x次谐波电压含有率" type="repeat" format="CSBCDType10" len="2"/>
+			</elem>
+		</FN>
+		<FN id="154" hasDataUnit="true">
+			<elem id="1" ename="ABVOLCCount_B" cname="B相谐波电压谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="DB61" cname="B相1次谐波电压含有率" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="DB62" cname="B相2次谐波电压含有率" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="DB63" cname="B相3次谐波电压含有率" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="DB64" cname="B相4次谐波电压含有率" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="DB65" cname="B相5次谐波电压含有率" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="DB66" cname="B相6次谐波电压含有率" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="DB67" cname="B相7次谐波电压含有率" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="DB68" cname="B相8次谐波电压含有率" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="DB69" cname="B相9次谐波电压含有率" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="DB6A" cname="B相10次谐波电压含有率" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="DB6B" cname="B相11次谐波电压含有率" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="DB6C" cname="B相12次谐波电压含有率" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="DB6D" cname="B相13次谐波电压含有率" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="DB6E" cname="B相14次谐波电压含有率" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="DB6F" cname="B相15次谐波电压含有率" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="DB70" cname="B相16次谐波电压含有率" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="DB71" cname="B相17次谐波电压含有率" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="DB72" cname="B相18次谐波电压含有率" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="DB73" cname="B相19次谐波电压含有率" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="780x" cname="x次谐波电压含有率" type="repeat" format="CSBCDType10" len="2"/>
+			</elem>
+		</FN>
+		<FN id="155" hasDataUnit="true">
+			<elem id="1" ename="ABVOLCCount_C" cname="C相谐波电压谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="DC61" cname="C相1次谐波电压含有率" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="DC62" cname="C相2次谐波电压含有率" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="DC63" cname="C相3次谐波电压含有率" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="DC64" cname="C相4次谐波电压含有率" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="DC65" cname="C相5次谐波电压含有率" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="DC66" cname="C相6次谐波电压含有率" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="DC67" cname="C相7次谐波电压含有率" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="DC68" cname="C相8次谐波电压含有率" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="DC69" cname="C相9次谐波电压含有率" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="DC6A" cname="C相10次谐波电压含有率" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="DC6B" cname="C相11次谐波电压含有率" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="DC6C" cname="C相12次谐波电压含有率" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="DC6D" cname="C相13次谐波电压含有率" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="DC6E" cname="C相14次谐波电压含有率" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="DC6F" cname="C相15次谐波电压含有率" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="DC70" cname="C相16次谐波电压含有率" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="DC71" cname="C相17次谐波电压含有率" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="DC72" cname="C相18次谐波电压含有率" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="DC73" cname="C相19次谐波电压含有率" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="790x" cname="x次谐波电压含有率" type="repeat" format="CSBCDType10" len="2"/>
+			</elem>
+		</FN>
+		<FN id="156" hasDataUnit="true">
+			<elem id="1" ename="ABCURCCount_A" cname="A相谐波电流谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="CA61" cname="A相1次谐波电流含有率" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="CA62" cname="A相2次谐波电流含有率" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="CA63" cname="A相3次谐波电流含有率" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="CA64" cname="A相4次谐波电流含有率" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="CA65" cname="A相5次谐波电流含有率" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="CA66" cname="A相6次谐波电流含有率" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="CA67" cname="A相7次谐波电流含有率" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="CA68" cname="A相8次谐波电流含有率" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="CA69" cname="A相9次谐波电流含有率" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="CA6A" cname="A相10次谐波电流含有率" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="CA6B" cname="A相11次谐波电流含有率" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="CA6C" cname="A相12次谐波电流含有率" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="CA6D" cname="A相13次谐波电流含有率" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="CA6E" cname="A相14次谐波电流含有率" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="CA6F" cname="A相15次谐波电流含有率" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="CA70" cname="A相16次谐波电流含有率" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="CA71" cname="A相17次谐波电流含有率" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="CA72" cname="A相18次谐波电流含有率" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="CA73" cname="A相19次谐波电流含有率" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="7A0x" cname="x次谐波电流含有率" type="repeat" format="CSBCDType10" len="2"/>
+			</elem>
+		</FN>
+		<FN id="157" hasDataUnit="true">
+			<elem id="1" ename="ABCURCCount_B" cname="B相谐波电流谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="CB61" cname="B相1次谐波电流含有率" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="CB62" cname="B相2次谐波电流含有率" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="CB63" cname="B相3次谐波电流含有率" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="CB64" cname="B相4次谐波电流含有率" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="CB65" cname="B相5次谐波电流含有率" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="CB66" cname="B相6次谐波电流含有率" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="CB67" cname="B相7次谐波电流含有率" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="CB68" cname="B相8次谐波电流含有率" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="CB69" cname="B相9次谐波电流含有率" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="CB6A" cname="B相10次谐波电流含有率" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="CB6B" cname="B相11次谐波电流含有率" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="CB6C" cname="B相12次谐波电流含有率" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="CB6D" cname="B相13次谐波电流含有率" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="CB6E" cname="B相14次谐波电流含有率" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="CB6F" cname="B相15次谐波电流含有率" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="CB70" cname="B相16次谐波电流含有率" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="CB71" cname="B相17次谐波电流含有率" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="CB72" cname="B相18次谐波电流含有率" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="CB73" cname="B相19次谐波电流含有率" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="7B0x" cname="x次谐波电流含有率" type="repeat" format="CSBCDType10" len="2"/>
+			</elem>
+		</FN>
+		<FN id="158" hasDataUnit="true">
+			<elem id="1" ename="ABCURCCount_C" cname="C相谐波电流谐波次数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="CC61" cname="C相1次谐波电流含有率" code="1" format="CSXB" len="0"/>
+			<elem id="5" ename="CC62" cname="C相2次谐波电流含有率" code="2" format="CSXB" len="0"/>
+			<elem id="6" ename="CC63" cname="C相3次谐波电流含有率" code="3" format="CSXB" len="0"/>
+			<elem id="7" ename="CC64" cname="C相4次谐波电流含有率" code="4" format="CSXB" len="0"/>
+			<elem id="8" ename="CC65" cname="C相5次谐波电流含有率" code="5" format="CSXB" len="0"/>
+			<elem id="9" ename="CC66" cname="C相6次谐波电流含有率" code="6" format="CSXB" len="0"/>
+			<elem id="10" ename="CC67" cname="C相7次谐波电流含有率" code="7" format="CSXB" len="0"/>
+			<elem id="11" ename="CC68" cname="C相8次谐波电流含有率" code="8" format="CSXB" len="0"/>
+			<elem id="12" ename="CC69" cname="C相9次谐波电流含有率" code="9" format="CSXB" len="0"/>
+			<elem id="13" ename="CC6A" cname="C相10次谐波电流含有率" code="10" format="CSXB" len="0"/>
+			<elem id="14" ename="CC6B" cname="C相11次谐波电流含有率" code="11" format="CSXB" len="0"/>
+			<elem id="15" ename="CC6C" cname="C相12次谐波电流含有率" code="12" format="CSXB" len="0"/>
+			<elem id="16" ename="CC6D" cname="C相13次谐波电流含有率" code="13" format="CSXB" len="0"/>
+			<elem id="17" ename="CC6E" cname="C相14次谐波电流含有率" code="14" format="CSXB" len="0"/>
+			<elem id="18" ename="CC6F" cname="C相15次谐波电流含有率" code="15" format="CSXB" len="0"/>
+			<elem id="19" ename="CC70" cname="C相16次谐波电流含有率" code="16" format="CSXB" len="0"/>
+			<elem id="20" ename="CC71" cname="C相17次谐波电流含有率" code="17" format="CSXB" len="0"/>
+			<elem id="21" ename="CC72" cname="C相18次谐波电流含有率" code="18" format="CSXB" len="0"/>
+			<elem id="22" ename="CC73" cname="C相19次谐波电流含有率" code="19" format="CSXB" len="0"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="7C0x" cname="x次谐波电流含有率" type="repeat" format="CSBCDType10" len="2"/>
+			</elem>
+		</FN>
+		<FN id="160" hasDataUnit="true">
+			<elem id="1" ename="B083" cname="A相电流基波" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="161" hasDataUnit="true">
+			<elem id="1" ename="B084" cname="B相电流基波" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="162" hasDataUnit="true">
+			<elem id="1" ename="B085" cname="C相电流基波" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="163" hasDataUnit="true">
+			<elem id="1" ename="B080" cname="A相电压基波" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="164" hasDataUnit="true">
+			<elem id="1" ename="B081" cname="B相电压基波" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="165" hasDataUnit="true">
+			<elem id="1" ename="B082" cname="C相电压基波" format="CSBCDType10" len="2"/>
+		</FN>
+		<FN id="233" hasDataUnit="true">
+			<elem id="1" ename="NonElectricType" cname="非电气量类型" format="CSBIN" len="1"/>
+			<elem id="2" ename="NonElectric" cname="非电气量" format="CSBCDType11" len="4"/>
+			<elem id="3" ename="D012" cname="(冷热累积流量" code="1" format="CSNDQ" len="0"/>
+			<elem id="4" ename="D029" cname="(冷热累积热量" code="2" format="CSNDQ" len="0"/>
+            <elem id="5" ename="D006" cname="(冷热)瞬时热量" code="3" format="CSNDQ" len="0"/>
+			<elem id="6" ename="D028" cname="(冷热)累积冷量" code="4" format="CSNDQ" len="0"/>
+			<elem id="7" ename="C013" cname="(冷热)瞬时流量" code="5" format="CSNDQ" len="0"/>
+			<elem id="8" ename="C014" cname="(冷热)入口温度" code="6" format="CSNDQ" len="0"/>
+			<elem id="9" ename="C015" cname="(冷热)出口温度" code="7" format="CSNDQ" len="0"/>
+            <elem id="10" ename="D018" cname="(冷热)温差" code="8" format="CSNDQ" len="0"/>
+			<elem id="11" ename="D005" cname="(冷热)瞬时冷量" code="9" format="CSNDQ" len="0"/>
+		</FN>
+	</AFN>
+
+	<AFN id="14">
+		<FN id="1" hasDataUnit="true">
+			<elem id="1" ename="curEC1" cname="当前重要事件计数器EC1" format="CSBIN" len="2"/>
+			<elem id="2" ename="curEC2" cname="当前一般事件计数器EC1" format="CSBIN" len="2"/>
+			<elem id="3" ename="ECBeginPoint" cname="本帧报文传送的事件记录起始指针Pm" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="ECEndPoint" cname="本帧报文传送的事件记录结束指针Pm" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="5" repeat="true" countid="5">
+				<elem id="6" ename="ERC" cname="事件记录的事件代码ERC" isERC="true" format="CSBIN" len="1"/>
+				<elem id="7" ename="DataUnitLength" cname="事件记录的数据单元长度" isunitlength="true" format="CSBIN" len="1"/>
+				<elem id="8" ename="EventDataUnit" cname="事件记录的数据单元" format="EventUnit" len="-1"/>
+			</elem>
+		</FN>
+		<FN id="2" hasDataUnit="true">
+			<elem id="1" ename="curEC1" cname="当前重要事件计数器EC1" format="CSBIN" len="2"/>
+			<elem id="2" ename="curEC2" cname="当前一般事件计数器EC1" format="CSBIN" len="2"/>
+			<elem id="3" ename="ECBeginPoint" cname="本帧报文传送的事件记录起始指针Pm" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" ename="ECEndPoint" cname="本帧报文传送的事件记录结束指针Pm" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="5" repeat="true" countid="5">
+				<elem id="6" ename="ERC" cname="事件记录的事件代码ERC" isERC="true" format="CSBIN" len="1"/>
+				<elem id="7" ename="DataUnitLength" cname="事件记录的数据单元长度" isunitlength="true" format="CSBIN" len="1"/>
+				<elem id="8" ename="EventDataUnit" cname="事件记录的数据单元" format="EventUnit" len="-1"/>
+			</elem>
+		</FN>
+		<FN id="3" hasDataUnit="true">
+			<elem id="1" ename="evenCount" cname="事件记录代码数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="2" repeat="true" countid="1">
+				<elem id="3" ename="ERC" cname="事件代码ERC" isERC="true" format="CSBIN" len="1"/>
+				<elem id="4" ename="ERCCount" cname="事件代码ERC的事件记录数" isrepeatcount="true" format="CSBIN" len="1"/>
+				<elem id="5" repeat="true" countid="4">
+					<elem id="6" ename="DataUnitLength" cname="事件代码ERC的事件记录的数据单元长度" isunitlength="true" format="CSBIN" len="1"/>
+					<elem id="7" ename="EventDataUnit" cname="事件代码ERC的第1个事件记录的数据单元" format="EventUnit" len="-1"/>
+				</elem>
+			</elem>
+		</FN>
+
+		<EV id="1" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="resetTime" cname="复位时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="resetType" cname="复位类别" format="CSBIN" len="1"/>
+		</EV>
+		<EV id="2" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="dataClearTime" cname="指定数据清零时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="unitIdentificationCount" cname="数据单元标识数" isrepeatcount="true" format="CSBIN" len="1"/>
+			<elem id="4" repeat="true" countid="3">
+				<elem id="5" ename="unitIdentification" cname="数据单元标识" isDataUnitId="true" format="CSPnFnS" len="4"/>
+				<elem id="6" ename="DataUnit" cname="数据单元标识的数据单元" format="DataUnit" len="-1"/>
+			</elem>
+		</EV>
+		<EV id="3" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="softwareChangeTime" cname="软件版本变更时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="oldVersion" cname="变更前软件版本号" format="CSASCII" len="4"/>
+			<elem id="4" ename="oldVersionReleaseTime" cname="变更前软件版本发布时间" format="CSBCDType2" len="5"/>
+			<elem id="5" ename="oldVersion" cname="变更前软件版本号" format="CSASCII" len="4"/>
+			<elem id="6" ename="oldVersionReleaseTime" cname="变更前软件版本发布时间" format="CSBCDType2" len="5"/>
+		</EV>
+		<EV id="4" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="paramChangeTime" cname="参数更新时间" format="CDBCDType2" len="5"/>
+			<elem id="3" repeat="true" countid="NULL" eachLength="4" fixedLength="7">
+				<elem id="4" ename="paramChangeUnitId" cname="变更参数数据单元标识" format="CSPnFnS" len="4"/>
+			</elem>
+		</EV>
+		<EV id="5" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="timingDeviceTime" cname="校时设备时间" format="CSBCDType1" len="6"/>
+			<elem id="3" ename="timingClock" cname="校时时钟" format="CSBCDType1" len="6"/>
+		</EV>
+		<EV id="6" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="bitChangeTime" cname="变位时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="statusBit" cname="状态变位" format="CSBS8" len="1"/>
+			<elem id="4" ename="statusBitChanged" cname="变位后状态" format="CSBS8" len="1"/>
+		</EV>
+		<EV id="7" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="tripTime" cname="跳闸时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="tripRound" cname="跳闸轮次" format="CSBS8" len="1"/>
+			<elem id="4" ename="tripPower" cname="跳闸时功率" format="CSBCDType6" len="3"/>
+			<elem id="5" ename="tripPower2Min" cname="跳闸后2分钟功率" format="CSBCDType6" len="3"/>
+		</EV>
+		<EV id="8" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="PowerCut/ElectrifyTime" cname="停/上电发生时间" format="CSBCDType2" len="5"/>
+		</EV>
+		<EV id="9" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="总功率因素越限时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Factor" cname="越限时总功率因素" format="CSBCDType10" len="2"/>
+			<elem id="4" ename="alarmConstantValue" cname="越限时总功率因数越限告警定值" format="CSBCDType10" len="2"/>
+		</EV>
+		<EV id="10" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="越限标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="Ua/Uab" cname="发生时的Ua/Uab" format="CSBCDType8" len="2"/>"
+			<elem id="5" ename="Ub" cname="发生时的Ub" format="CSBCDType8" len="2"/>"
+			<elem id="6" ename="Uc/Ucb" cname="发生时的Uc/Ucb" format="CSBCDType8" len="2"/>"
+		</EV>
+		<EV id="11" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="5" ename="Ub" cname="发生时的Ub" format="CSBCDType8" len="2"/>"
+			<elem id="6" ename="Uc/Ucb" cname="发生时的Uc/Ucb" format="CSBCDType8" len="2"/>"
+			<elem id="7" ename="Ia" cname="发生时的Ia" format="CSBCDType9" len="3"/>
+			<elem id="8" ename="Ib" cname="发生时的Ib" format="CSBCDType9" len="3"/>
+			<elem id="9" ename="Ic" cname="发生时的Ic" format="CSBCDType9" len="3"/>
+		</EV>
+		<EV id="12" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="异常标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="Ua/Uab" cname="发生时的Ua/Uab" format="CSBCDType8" len="2"/>"
+			<elem id="5" ename="Ub" cname="发生时的Ub" format="CSBCDType8" len="2"/>"
+			<elem id="6" ename="Uc/Ucb" cname="发生时的Uc/Ucb" format="CSBCDType8" len="2"/>"
+			<elem id="7" ename="Ia" cname="发生时的Ia" format="CSBCDType9" len="3"/>
+			<elem id="8" ename="Ib" cname="发生时的Ib" format="CSBCDType9" len="3"/>
+			<elem id="9" ename="Ic" cname="发生时的Ic" format="CSBCDType9" len="3"/>
+		</EV>
+		<EV id="13" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="越限标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="Ua/Uab" cname="发生时的Ua/Uab" format="CSBCDType8" len="2"/>"
+			<elem id="5" ename="Ub" cname="发生时的Ub" format="CSBCDType8" len="2"/>"
+			<elem id="6" ename="Uc/Ucb" cname="发生时的Uc/Ucb" format="CSBCDType8" len="2"/>"
+		</EV>
+		<EV id="14" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="越限标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="Ia" cname="发生时的Ia" format="CSBCDType9" len="3"/>
+			<elem id="5" ename="Ib" cname="发生时的Ib" format="CSBCDType9" len="3"/>
+			<elem id="6" ename="Ic" cname="发生时的Ic" format="CSBCDType9" len="3"/>
+		</EV>
+		<EV id="15" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Unbalance" cname="发生时的电压不平衡度" format="CSBCDType10" len="2"/>
+			<elem id="4" ename="Ua/Uab" cname="发生时的Ua/Uab" format="CSBCDType8" len="2"/>"
+			<elem id="5" ename="Ub" cname="发生时的Ub" format="CSBCDType8" len="2"/>"
+			<elem id="6" ename="Uc/Ucb" cname="发生时的Uc/Ucb" format="CSBCDType8" len="2"/>"
+		</EV>
+		<EV id="16" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Unbalance" cname="发生时的电压不平衡度" format="CSBCDType10" len="2"/>
+			<elem id="4" ename="Ia" cname="发生时的Ia" format="CSBCDType9" len="3"/>
+			<elem id="5" ename="Ib" cname="发生时的Ib" format="CSBCDType9" len="3"/>
+			<elem id="6" ename="Ic" cname="发生时的Ic" format="CSBCDType9" len="3"/>
+		</EV>
+		<EV id="17" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="aberrationTotalVOL" cname="发生时的谐波电压总畸变率" format="CSBCDType10" len="2"/>
+			<elem id="4" ename="aberrationTotalOddVOL" cname="发生时的谐波电压奇次畸变率" format="CSBCDType10" len="2"/>
+			<elem id="5" ename="aberrationTotalEvenVOL" cname="发生时的谐波电压偶次畸变率" format="CSBCDType10" len="2"/>
+		</EV>
+		<EV id="18" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="越限标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="aberrationTotalVOL" cname="发生时的谐波电流总畸变率" format="CSBCDType10" len="2"/>
+			<elem id="5" ename="aberrationTotalOddVOL" cname="发生时的谐波电流奇次畸变率" format="CSBCDType10" len="2"/>
+			<elem id="6" ename="aberrationTotalEvenVOL" cname="发生时的谐波电流偶次畸变率" format="CSBCDType10" len="2"/>
+		</EV>
+		<EV id="19" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="越限标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="Ashort/longChange" cname="发生时的A相短时∕长时闪变值" format="CSBCDType10" len="2"/>
+			<elem id="5" ename="Bshort/longChange" cname="发生时的B相短时∕长时闪变值" format="CSBCDType10" len="2"/>
+			<elem id="6" ename="Cshort/longChange" cname="发生时的C相短时∕长时闪变值" format="CSBCDType10" len="2"/>
+		</EV>
+		<EV id="20" hasDataUnit="true">
+			<elem id="1" ename="pn" cname="p0/监测终端号" format="CSBIN" len="2"/>
+			<elem id="2" ename="Time" cname="发生时间" format="CSBCDType2" len="5"/>
+			<elem id="3" ename="Status" cname="越限标志" format="CSBS8" len="1"/>
+			<elem id="4" ename="NonElectricType" cname="非电气量类型" format="CSBIN" len="1"/>
+			<elem id="5" ename="NonElectric" cname="非电气量" format="CSBCDType11" len="4"/>
+		</EV>
+	</AFN>
+</FRAMENX>
